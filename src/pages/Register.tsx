@@ -1,69 +1,137 @@
 import React, { useState } from "react";
-import api from "../services/api.ts"; // tu instancia de Axios
-
+import { useNavigate, Link } from "react-router-dom";
+import { User, Mail, Lock, ShieldCheck, ArrowLeft, UserPlus } from "lucide-react";
+import api from "../services/api.ts";
 import "../styles/Register.css";
 
 const Register: React.FC = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("PATIENT");// valor por defecto
+  const [role, setRole] = useState("PATIENT");
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const navigate = useNavigate();
+
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
+    setErrorMsg(null);
+    
     try {
-      const response = await api.post("/auth/register", {
+      await api.post("/auth/register", {
         username,
         email,
         password,
         role: role.toUpperCase(),
       });
-      alert("Usuario registrado correctamente");
-      console.log(response.data);
-
-      // Opcional: redirigir al login después de registrarse
-      window.location.href = "/login";
-    } catch (error) {
-      alert("Error al registrar");
+      navigate("/login");
+    } catch (error: any) {
+      setErrorMsg("Error al registrar: El usuario o email ya podrían existir.");
       console.error(error);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="register-container">
-      <div className="register-box">
-        <h2>Registro</h2>
-        <form onSubmit={handleRegister}>
-          <input
-            type="text"
-            placeholder="Usuario"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-          <input
-            type="email"
-            placeholder="Correo"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <input
-            type="password"
-            placeholder="Contraseña"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <select value={role} onChange={(e) => setRole(e.target.value)}>
-            <option value="PATIENT">Paciente</option>
-            <option value="DOCTOR">Doctor</option>
-            <option value="ADMIN">Admin</option>
-          </select>
-          <button type="submit">Registrarse</button>
-        </form>
-        <p>
-          ¿Ya tienes cuenta? <a href="/login">Inicia sesión aquí</a>
-        </p>
+    <div className="register-wrapper">
+      <div className="register-container animate-fade-in">
+        
+        <div className="register-form-section">
+          <button className="back-button" onClick={() => navigate("/login")}>
+            <ArrowLeft size={20} />
+            <span>Volver al Login</span>
+          </button>
+
+          <div className="register-form-content">
+            <div className="register-header">
+              <div className="icon-badge">
+                <UserPlus size={24} />
+              </div>
+              <h2>Crear Cuenta</h2>
+              <p>Únete a nuestra plataforma médica integral</p>
+            </div>
+
+            {errorMsg && (
+              <div className="error-alert animate-fade-in">
+                <span>{errorMsg}</span>
+              </div>
+            )}
+
+            <form onSubmit={handleRegister} className="register-form">
+              <div className="input-group">
+                <label>Nombre de Usuario</label>
+                <div className="input-wrapper">
+                  <User size={18} className="input-icon" />
+                  <input
+                    type="text"
+                    placeholder="Ej: juanperez88"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="input-group">
+                <label>Correo Electrónico</label>
+                <div className="input-wrapper">
+                  <Mail size={18} className="input-icon" />
+                  <input
+                    type="email"
+                    placeholder="correo@ejemplo.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="input-group">
+                <label>Contraseña</label>
+                <div className="input-wrapper">
+                  <Lock size={18} className="input-icon" />
+                  <input
+                    type="password"
+                    placeholder="••••••••"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="input-group">
+                <label>Tipo de Usuario</label>
+                <div className="input-wrapper">
+                  <ShieldCheck size={18} className="input-icon" />
+                  <select value={role} onChange={(e) => setRole(e.target.value)}>
+                    <option value="PATIENT">Paciente</option>
+                    <option value="DOCTOR">Médico</option>
+                    <option value="ADMIN">Administrador</option>
+                  </select>
+                </div>
+              </div>
+
+              <button type="submit" className="btn-primary" disabled={loading}>
+                {loading ? "Registrando..." : "Registrarse"}
+              </button>
+
+              <div className="login-prompt">
+                <p>¿Ya tienes cuenta? <Link to="/login">Inicia sesión aquí</Link></p>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div className="register-image-section">
+          <div className="register-overlay">
+            <h2>Tu salud, nuestra prioridad</h2>
+            <p>Regístrate para gestionar tus citas y acceder a tu historial médico desde cualquier lugar.</p>
+          </div>
+        </div>
+
       </div>
     </div>
   );

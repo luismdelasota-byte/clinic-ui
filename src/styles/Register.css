@@ -1,90 +1,144 @@
-/* Fondo general */
-.register-container {
-  width: 100%;
-  height: 100vh;
-  background: linear-gradient(135deg, #11a0cb, #257bfc);
+.register-wrapper {
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  background: var(--bg-color);
+  padding: 2rem;
 }
 
-/* Caja de registro estilo glassmorphism */
-.register-box {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 15px;
-  padding: 40px;
-  width: 400px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  color: #fff;
-  text-align: center;
-}
-
-
-/* Título */
-.register-box h2 {
-  margin-bottom: 20px;
-  font-size: 26px;
-  font-weight: bold;
-}
-
-/* Inputs */
-.register-box input {
-  width: 90%;
-  padding: 12px;
-  margin: 0.5rem 0;
-  border: none;
-  border-radius: 8px;
-  background: rgba(255,255,255,0.2);
-  color: #fff;
-  outline: none;
-  transition: background 0.3s;
-}
-
-.register-box input::placeholder {
-  color: #ddd;
-}
-
-
-.register-box select {
-  width: 95%;
-  padding: 12px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 8px;
-  outline: none;
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
-  background: #2575fc;
-  color: #fff;           
-
-}
-
-/* Botón */
-.register-box button {
+.register-container {
+  display: flex;
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  max-width: 1100px;
   width: 100%;
-  padding: 12px;
-  margin-top: 15px;
-  border: none;
-  border-radius: 8px;
-  background: #2575fc;
-  color: #fff;
-  font-size: 16px;
+  min-height: 700px;
+}
+
+/* Image Section */
+.register-image-section {
+  flex: 1;
+  background-image: url('https://images.unsplash.com/photo-1576091160550-2173dbc9982a?q=80&w=1000&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+
+.register-overlay {
+  background: linear-gradient(to top, rgba(0, 51, 102, 0.9) 0%, rgba(0, 51, 102, 0.2) 100%);
+  width: 100%;
+  padding: 3rem;
+  color: white;
+}
+
+.register-overlay h2 {
+  color: white;
+  font-size: 2.2rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.2;
+}
+
+.register-overlay p {
+  opacity: 0.9;
+  font-size: 1.1rem;
+}
+
+/* Form Section */
+.register-form-section {
+  flex: 1.2;
+  padding: 3.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: white;
+}
+
+.register-form-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 450px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.icon-badge {
+  width: 50px;
+  height: 50px;
+  background: rgba(15, 82, 186, 0.1);
+  color: var(--primary-color);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.register-header h2 {
+  font-size: 2.2rem;
+  color: var(--primary-dark);
+  margin-bottom: 0.5rem;
+}
+
+.register-header p {
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.register-form .input-group {
+  margin-bottom: 1.25rem;
+}
+
+.register-form label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.input-wrapper select {
+  width: 100%;
+  padding: 0.875rem 1rem 0.875rem 3rem;
+  border: 1px solid #E2E8F0;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  color: var(--text-main);
+  background: #F8FAFC;
   cursor: pointer;
-  transition: background 0.3s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23718096' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.2rem;
 }
 
-.register-box button:hover {
-  background: #1a5edb;
+.btn-primary {
+  margin-top: 1.5rem;
+  box-shadow: 0 4px 12px rgba(15, 82, 186, 0.2);
 }
 
-/* Link de login */
-.register-box p {
-  margin-top: 15px;
-  font-size: 14px;
+.btn-primary:active {
+  transform: translateY(1px);
 }
 
-.register-box a {
-  color: #fff;
-  text-decoration: underline;
+@media (max-width: 900px) {
+  .register-container {
+    max-width: 500px;
+    flex-direction: column;
+  }
+  
+  .register-image-section {
+    display: none;
+  }
+  
+  .register-form-section {
+    padding: 2.5rem;
+  }
 }
