@@ -1,18 +1,18 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import RoleSelection from "./pages/RoleSelection";
-import Login from "./pages/Login";
+import RoleSelection from "./pages/auth/RoleSelection";
+import Login from "./pages/auth/Login";
 import Dashboard from "./pages/Dashboard";
-import Register from "./pages/Register";
+import Register from "./pages/auth/Register";
 import ManagePatients from "./pages/patients/ManagePatients";
-import ManageSchedule from "./pages/schedules/ManageSchedule";
+import ManageSchedule from "./pages/schedule/ManageSchedule";
 import ManageDoctors from "./pages/doctors/ManageDoctors";
 import ManageAppointments from "./pages/appointments/ManageAppointments";
 import RegisterPatients from "./pages/patients/RegisterPatients";
-import DoctorAppointments from "./pages/DoctorAppointments";
-import DoctorScheduleView from "./pages/doctors/DoctorScheduleView";
-import PatientAppointments from "./pages/patients/PatientAppointments";
-import PatientMedicalHistory from "./pages/patients/PatientMedicalHistory";
+import DoctorAppointments from "./pages/appointments/DoctorAppointments";
+import DoctorScheduleView from "./pages/schedule/DoctorScheduleView";
+import PatientAppointments from "./pages/appointments/PatientAppointments";
+import PatientMedicalHistory from "./pages/history/PatientMedicalHistory";
 import PatientProfile from "./pages/patients/PatientProfile";
 
 const App: React.FC = () => {

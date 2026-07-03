@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { X, Search, User, ClipboardList, Stethoscope } from "lucide-react";
 import { getAllPatients } from "../../services/patientService";
-import { saveClinicalHistory } from "../../services/clinicalHistoryService";
+import { saveClinicalHistory } from "../../services/history/clinicalHistoryService";
 import "../../styles/modals.css";
 
 interface Props {
