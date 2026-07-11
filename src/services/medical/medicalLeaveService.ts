@@ -1,4 +1,4 @@
-import api from "./api";
+import api from "../api";
 
 export const getLeavesByPatient = async (patientId: number) => {
   const response = await api.get(`/api/medical-leaves/patient/${patientId}`);

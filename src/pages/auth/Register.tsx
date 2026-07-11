@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { User, Mail, Lock, ArrowLeft, UserPlus } from "lucide-react";
-import api from "../services/api.ts";
-import "../styles/Register.css";
+import api from "../../services/api.ts";
+import "../../styles/Register.css";
 
 const Register: React.FC = () => {
   const [username, setUsername] = useState("");

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Calendar as CalendarIcon, ChevronLeft, ChevronRight, Clock } from "lucide-react";
-import { getSchedulesByDoctor } from "../../services/scheduleService";
+import { getSchedulesByDoctor } from "../../services/schedule/scheduleService";
 import "../../styles/DoctorScheduleView.css";
 
 const DoctorScheduleView: React.FC = () => {

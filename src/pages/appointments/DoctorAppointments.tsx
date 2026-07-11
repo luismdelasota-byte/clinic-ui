@@ -5,10 +5,10 @@ import {
   CheckCircle, Activity, CalendarDays, FilePlus,
   Plus, User
 } from "lucide-react";
-import "../styles/DoctorAppointments.css";
-import { updateAppointmentStatus, getAppointmentsByDoctor, saveAppointment } from "../services/appointmentService";
-import { getSchedulesByDoctor } from "../services/scheduleService";
-import ClinicalDiaryModal from "../components/modals/ClinicalDiaryModal";
+import "../../styles/DoctorAppointments.css";
+import { updateAppointmentStatus, getAppointmentsByDoctor, saveAppointment } from "../../services/appointmentService";
+import { getSchedulesByDoctor } from "../../services/schedule/scheduleService";
+import ClinicalDiaryModal from "../../components/modals/ClinicalDiaryModal";
 
 interface Appointment {
   id: number;

@@ -8,7 +8,7 @@ import "../styles/Dashboard.css";
 import { getAllDoctors } from "../services/doctorService";
 import { getAllPatients } from "../services/patientService";
 import { getAllAppointments } from "../services/appointmentService";
-import { getAllSchedules } from "../services/scheduleService";
+import { getAllSchedules } from "../services/schedule/scheduleService";
 
 import { Line } from "react-chartjs-2";
 import ClinicalDiaryModal from "../components/modals/ClinicalDiaryModal";

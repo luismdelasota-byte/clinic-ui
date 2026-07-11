@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { ShieldCheck, Stethoscope, User } from "lucide-react";
-import "../styles/RoleSelection.css";
+import "../../styles/RoleSelection.css";
 
 const RoleSelection: React.FC = () => {
   const navigate = useNavigate();

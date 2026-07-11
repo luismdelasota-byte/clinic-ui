@@ -1,4 +1,4 @@
-import api from "./api";
+import api from "../api";
 
 export const getHistoriesByPatient = async (patientId: number) => {
   const response = await api.get(`/api/clinical-histories/patient/${patientId}`);

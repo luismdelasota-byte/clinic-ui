@@ -1,4 +1,4 @@
-import api from "./api";
+import api from "../api";
 
 // Listar todos los horarios
 export const getAllSchedules = async () => {

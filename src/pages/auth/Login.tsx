@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { ShieldAlert, User, Lock, ArrowLeft } from "lucide-react";
-import api from "../services/api";
-import "../styles/Login.css";
+import api from "../../services/api";
+import "../../styles/Login.css";
 
 const Login: React.FC = () => {
   const [usernameOrEmail, setUsernameOrEmail] = useState("");

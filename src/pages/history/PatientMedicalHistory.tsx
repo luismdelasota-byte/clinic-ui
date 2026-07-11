@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, ClipboardList, Calendar, Stethoscope, Search } from "lucide-react";
-import { getHistoriesByPatient } from "../../services/clinicalHistoryService";
-import { getReportsByPatient } from "../../services/medicalReportService";
-import { getLeavesByPatient } from "../../services/medicalLeaveService";
+import { getHistoriesByPatient } from "../../services/history/clinicalHistoryService";
+import { getReportsByPatient } from "../../services/medical/medicalReportService";
+import { getLeavesByPatient } from "../../services/medical/medicalLeaveService";
 import "../../styles/PatientMedicalHistory.css";
 
 const PatientMedicalHistory: React.FC = () => {

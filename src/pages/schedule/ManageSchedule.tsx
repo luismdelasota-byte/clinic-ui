@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getAllSchedules, saveSchedule, deleteSchedule } from "../../services/scheduleService";
+import { getAllSchedules, saveSchedule, deleteSchedule } from "../../services/schedule/scheduleService";
 import api from "../../services/api";
 import { ArrowLeft, Clock, Plus, X, Edit2, Trash2, Save, Calendar, User, Stethoscope } from "lucide-react";
 import "../../styles/schedule.css";
