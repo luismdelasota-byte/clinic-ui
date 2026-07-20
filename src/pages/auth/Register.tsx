@@ -24,6 +24,7 @@ const Register: React.FC = () => {
         password,
         role: "PATIENT",
       });
+      localStorage.setItem("selectedRole", "PATIENT");
       navigate("/login");
     } catch (error: any) {
       if (error.response && error.response.data) {
